@@ -1,0 +1,33 @@
+<head>
+  <title>luz</title>
+	<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+</head>
+
+<body>
+  <h1>PROYECTO DOMOTICA</h1>
+
+  {{> sala}}
+  
+</body>
+
+
+<template name="sala">
+<div align="center">
+
+    <h2>Luz Sala</h2>
+    <label class="switch">
+      <input class="switch-input" type="checkbox" id="switch" />
+      <span class="switch-label" data-on="On" data-off="Off"></span> 
+      <span class="switch-handle"></span> 
+    </label> 
+
+    <h2>Luz Cuarto</h2>
+    <label class="switch">
+      <input class="switch-input" type="checkbox" id="switch2" />
+      <span class="switch-label" data-on="On" data-off="Off"></span> 
+      <span class="switch-handle"></span> 
+    </label> 
+  </div>
+</template>
+
+
