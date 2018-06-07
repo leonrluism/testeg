@@ -65,6 +65,26 @@ ref.on("child_changed", function(res) {
 
   }); 
 
+  /*****************************************************************
+   Obtenemos el valor del último estado COCINA
+  ******************************************************************/
+ ref.once("value", function(res) {
+
+    var luzcocina = res.child("cocina").val();
+    $('#switch3').attr('checked', luzcocina); // 
+    console.log("Estado actual 1: " +luzcocina)
+
+  });
+
+ref.on("child_changed", function(res) {
+
+    var luz_cocina = res.val();
+    $('#switch3').prop('checked');
+	luz_cocina = $('#switch3').prop('checked');
+    console.log("Cambio de estado: " +luz_cocina)
+
+  }); 
+
 
 
 
@@ -107,6 +127,24 @@ Template.sala.events({
       else{
           console.log("Off")
           firebase.database().ref().update({ cuarto: false });
+      }
+	
+  },
+});
+
+Template.sala.events({
+  'click #switch3'(event, instance) {//EVENTO CON LALUZ DE LA COCINA
+    // increment the counter when button is clicked
+    instance.counter.set(instance.counter.get() + 1);
+
+	 if(document.querySelector('#switch3').checked) 
+      {
+          console.log("On")
+          firebase.database().ref().update({ cocina: true });
+      }
+      else{
+          console.log("Off")
+          firebase.database().ref().update({ cocina: false });
       }
 	
   },
